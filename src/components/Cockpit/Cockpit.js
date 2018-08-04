@@ -18,7 +18,7 @@ const cockpit = (props) => {
 
     return (
         <div className={classes.Cockpit}>
-            <h1>Hello from REACT!</h1>
+            <h1>{props.appTitle}</h1>
             <p className={assignedClasses.join(' ')}>Paragraph with dynamic className</p>
             <button
                 className={btnClass}
