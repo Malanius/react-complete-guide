@@ -6,3 +6,11 @@
     padding: 60px;
     text-align: center;
 }
+
+/* Could be done like this, or using Radium
+@media (min-width: 500px){
+    .Person {
+        width: 450px;
+    }
+}
+*/

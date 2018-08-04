@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 import Person from './Person/Person';
 import './Person/Person.css'
 
@@ -96,23 +96,26 @@ class App extends Component {
 
 
     return (
-      <div className="App">
-        <h1>Hello from REACT!</h1>
-        <p className={classes.join(' ')}>Paragraph with dynamic className</p>
-        <button
-          style={style}
-          onClick={this.togglePersonsHandler}>
-          Toggle persons
+      <StyleRoot>
+        <div className="App">
+          <h1>Hello from REACT!</h1>
+          <p className={classes.join(' ')}>Paragraph with dynamic className</p>
+          <button
+            style={style}
+            onClick={this.togglePersonsHandler}>
+            Toggle persons
           </button>
 
-        {persons}
+          {persons}
 
-      </div>
+        </div>
+      </StyleRoot>
       //This is compiled to this:
       //React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hello from REACT!!!'))
 
       //Component has to have only one root element!
       //<p>This wont work!<p>
+
     );
   }
 }
