@@ -5,15 +5,40 @@ import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
 
-  state = {
-    persons: [
-      { id: 'prs1', name: 'Max', age: 28 },
-      { id: 'prs2', name: 'Manu', age: 29 },
-      { id: 'prs3', name: 'Melanie', age: 21 }
-    ],
-    otherState: 'some other value', //will be untouched by setState
-    showPersons: false
+  constructor(props) {
+    super(props); //Always call super constructor
+    console.log('[App.js] - Inside constructor', props);
+
+    //This will work at older project setups
+    this.state = {
+      persons: [
+        { id: 'prs1', name: 'Max', age: 28 },
+        { id: 'prs2', name: 'Manu', age: 29 },
+        { id: 'prs3', name: 'Melanie', age: 21 }
+      ],
+      otherState: 'some other value', //will be untouched by setState
+      showPersons: false
+    }
   }
+
+  componentWillMount() {
+    console.log('[App.js] - Inside componentWillMount()');
+  }
+
+  componentDidMount(){
+    console.log('[App.js] - Inside componentDidMount()');
+  }
+
+  // This will work only with ES6 enabled
+  // state = {
+  //   persons: [
+  //     { id: 'prs1', name: 'Max', age: 28 },
+  //     { id: 'prs2', name: 'Manu', age: 29 },
+  //     { id: 'prs3', name: 'Melanie', age: 21 }
+  //   ],
+  //   otherState: 'some other value', //will be untouched by setState
+  //   showPersons: false
+  // }
 
   deletePersonHandler = (index) => {
     //const persons = this.state.persons.slice();
@@ -47,6 +72,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] - Inside render()');
     let persons = null;
 
     if (this.state.showPersons) {
@@ -79,6 +105,7 @@ class App extends Component {
 
     );
   }
+
 }
 
 export default App;
