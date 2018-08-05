@@ -24,7 +24,9 @@ class Persons extends Component {
         console.log('[UPDATE Persons.js] - Inside shouldComponentUpdate()', nextProps, nextState);
         //return true; //Return based on check of nextProps and nextState
         //return false; //This will stop the update process
-        return nextProps !== this.props;
+        return nextProps.persons !== this.props.persons ||
+            nextProps.changed !== this.props.changed ||
+            nextProps.clicked !== this.props.clicked
     }
 
     componentWillUpdate(nextProps, nextState) {
