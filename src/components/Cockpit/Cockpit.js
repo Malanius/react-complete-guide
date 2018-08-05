@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Cockpit.css'
+import Aux from '../../hoc/Auxilliary';
 
 const cockpit = (props) => {
 
@@ -11,13 +12,13 @@ const cockpit = (props) => {
         assignedClasses.push(classes.bold);
     }
 
-    let btnClass = '';
+    let btnClass = classes.Button;
     if (props.showPersons) {
-        btnClass = classes.Red;
+        btnClass = [classes.Button, classes.Red].join(' ');
     }
 
     return (
-        <div className={classes.Cockpit}>
+        <Aux>
             <h1>{props.appTitle}</h1>
             <p className={assignedClasses.join(' ')}>Paragraph with dynamic className</p>
             <button
@@ -25,7 +26,7 @@ const cockpit = (props) => {
                 onClick={props.clicked}>
                 Toggle persons
           </button>
-        </div>
+        </Aux>
     );
 };
 
